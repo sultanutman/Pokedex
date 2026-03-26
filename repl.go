@@ -7,14 +7,14 @@ import (
 	"strings"
 )
 
-func bootApp() {
+func bootApp() error {
 	scanner := bufio.NewScanner(os.Stdin)
 
 	for {
 		fmt.Print("Pokedex > ")
 		scaned := scanner.Scan()
 		if !scaned {
-			fmt.Errorf("Scanner failed!")
+			return fmt.Errorf("Scanner failed!")
 		}
 
 		input := scanner.Text()
